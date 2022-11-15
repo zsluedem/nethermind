@@ -45,7 +45,7 @@ namespace Nethermind.Evm.Test
         protected ITransactionProcessor _processor;
         private IDb _stateDb;
 
-        protected VirtualMachine Machine { get; private set; }
+        public VirtualMachine Machine { get; private set; }
         protected IStateProvider TestState { get; private set; }
         protected IStorageProvider Storage { get; private set; }
 
@@ -99,7 +99,7 @@ namespace Nethermind.Evm.Test
             return tracer.BuildResult();
         }
 
-        protected TestAllTracerWithOutput Execute(params byte[] code)
+        public TestAllTracerWithOutput Execute(params byte[] code)
         {
             (Block block, Transaction transaction) = PrepareTx(BlockNumber, 100000, code);
             TestAllTracerWithOutput tracer = CreateTracer();
